@@ -30,7 +30,17 @@ from pathlib import Path
 from . import helpers, modules, jit, parser, current_prog, lexer
 from .function import Function
 
-import http.cookies, http.server, http.client, http.cookiejar, sqlite3.dump, sqlite3.dbapi2, urllib.error, urllib.parse, urllib.request, urllib.response, urllib.robotparser
+import http.cookies
+import http.server
+import http.client
+import http.cookiejar
+import sqlite3.dump
+import sqlite3.dbapi2
+import urllib.error
+import urllib.parse
+import urllib.request
+import urllib.response
+import urllib.robotparser
 
 def free(name):
     from . import current_prog
