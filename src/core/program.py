@@ -42,7 +42,9 @@ def free(name):
 
 class Program(helpers.Helpers):
     """ Pashmak program object """
-    def __init__(self, is_test=False, args=[]):
+    def __init__(self, is_test=False, args=None):
+        if args is None:
+            args = []
         self.frames = [{
             'current_step': 0,
             'commands': [parser.parse('pass')[0]],
@@ -237,8 +239,10 @@ class Program(helpers.Helpers):
             print(error_type + ': ' + message + '.')
         sys.exit(1)
 
-    def exec_func(self, func_body: list, with_frame=True, default_variables={}):
+    def exec_func(self, func_body: list, with_frame=True, default_variables=None):
         """ Gets a list from commands and runs them as function or included script """
+        if default_variables is None:
+            default_variables = {}
         old_dir = self.get_var('__dir__')
         old_file = self.get_var('__file__')
         # create new frame for this call
